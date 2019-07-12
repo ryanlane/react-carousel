@@ -16,22 +16,22 @@ export const sampleCollection = [
   },
   {
     id: 3,
-    title: 'title 3',
-    imageName: 'image.png'
+    title: 'Spider-Man: Into the Spider-Verse',
+    imageName: 'spiderverse.jpg'
   },
   {
     id: 4,
-    title: 'title 4',
-    imageName: 'image.png'
+    title: 'Star Wars: The Last Jedi',
+    imageName: 'starwarsposter.jpeg'
   },
   {
     id: 5,
-    title: 'title 5',
-    imageName: 'image.png'
+    title: 'The Martian',
+    imageName: 'the_martian.jpg'
   },
   {
     id: 6,
-    title: 'title 6',
-    imageName: 'image.png'
+    title: 'Time Bandits',
+    imageName: 'time-bandits-md-web.jpg'
   }
 ];
