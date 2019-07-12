@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.Content {
+  background-color: $color-white;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resourceList {
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  color: $nfx-white;
+  flex-flow: row nowrap;
+  overflow: hidden;
+}
