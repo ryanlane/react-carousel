@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400|Roboto:100,300,400,400i,500,700');
+
+$color-black: #222;
+$color-offblack: #16161d;
+$color-white: #fff;
+$color-offwhite: #f1f2f2;
+$color-blue: #006ba4;
+$color-blue-dark: #092234;
+$color-blue-light: #2b8eaa;
+$color-blue-bright: #00bfff;
+$color-gray: #3f3f3f;
+$color-gray-medium: #b0b4b8;
+$color-gray-light: #e1e1e1;
+$color-gray-lighter: #f8f9fb;
+
+$z-index-below: -11;
+$z-index-bot: 1;
+$z-index-mid: 11;
+$z-index-top: 21;
+$z-index-highest: 31;
+
+@custom-media --x-small-screen (max-width: 520px);
+@custom-media --small-screen (max-width: 720px);
+@custom-media --medium-screen (max-width: 900px);
