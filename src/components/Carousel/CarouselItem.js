@@ -8,6 +8,9 @@ class CarouselItem extends Component {
   constructor(props) {
     super(props);
     this.imageContainer = React.createRef();
+
+    this.imagePath =
+      'https://s3-us-west-2.amazonaws.com/movie-posters.ryanlane.com/';
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -31,31 +34,18 @@ class CarouselItem extends Component {
     const { history } = this.props;
     //this.props.history.push('/mediascape');
 
-    history.push(`/mediascape/${resourceId}`);
+    history.push(`/somepath/${resourceId}`);
   }
 
-  fetchCoverImage(images, resourceId, useCF = false) {
-    let activeImagePath;
-    Object.keys(images).forEach(key => {
-      if (useCF) {
-        if (images[key].type === 'mediascapeteaser' && images[key].isActive) {
-          // activeImagePath = `${STORAGE.cfPath}${resourceId}/images/splash.png`;
-          activeImagePath = images[key].downloadURL;
-        }
-      } else {
-        if (images[key].type === 'square' && images[key].isActive) {
-          activeImagePath = images[key].downloadURL;
-        }
-      }
-    });
-    return activeImagePath;
+  getFullImagePath(filename) {
+    return this.imagePath + filename;
   }
 
   render() {
     const { collectionItem, device, isActive, position } = this.props;
 
     // console.log('collectionItem', collectionItem, index, currentId);
-    let activeImage = this.fetchCoverImage(
+    let activeImage = this.getFullImagePath(
       collectionItem.images,
       collectionItem.studioBookId,
       device.isVZSTB,
@@ -76,7 +66,7 @@ class CarouselItem extends Component {
           <img
             className={styles.mediaImage}
             src={activeImage}
-            alt={`book cover art for ${collectionItem.title}`}
+            alt={`cover art for ${collectionItem.title}`}
           />
         </div>
       </li>
