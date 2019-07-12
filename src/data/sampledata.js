@@ -1,18 +1,18 @@
 export const sampleCollection = [
   {
     id: 0,
-    title: 'title 0',
-    imageName: 'image.png'
+    title: 'First man',
+    imageName: 'first-man-2018.jpg'
   },
   {
     id: 1,
-    title: 'title 1',
-    imageName: 'image.png'
+    title: 'Kubo and the Two Strings',
+    imageName: 'kubo.jpg'
   },
   {
     id: 2,
-    title: 'title 2',
-    imageName: 'image.png'
+    title: 'Moana',
+    imageName: 'moana-juliste.jpg'
   },
   {
     id: 3,
