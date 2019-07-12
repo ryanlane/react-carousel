@@ -36,9 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "es6-shim": "^0.35.5",
-    "node-sass": "^4.11.0"
   }
 }
