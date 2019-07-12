@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './CarouselItem.module.scss';
 
-// const myPath = process.env.PUBLIC_URL;
-
 class CarouselItem extends Component {
   constructor(props) {
     super(props);
@@ -11,23 +9,6 @@ class CarouselItem extends Component {
 
     this.imagePath =
       'https://s3-us-west-2.amazonaws.com/movie-posters.ryanlane.com/';
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { collectionItem, isActive, index, currentId, history } = this.props;
-    if (isActive !== prevProps.isActive && isActive) {
-      if (index === currentId) {
-        //this.createNewSessionID();
-
-        history.push(`/mediascape/${collectionItem.studioBookId}`);
-      }
-    }
-
-    if (this.imageContainer.current) {
-      const { returnItemSize } = this.props;
-      if (returnItemSize)
-        returnItemSize(this.imageContainer.current.offsetWidth);
-    }
   }
 
   handleClick(resourceId, ssId) {
@@ -42,13 +23,12 @@ class CarouselItem extends Component {
   }
 
   render() {
-    const { collectionItem, device, isActive, position } = this.props;
+    const { collectionItem, isActive, position } = this.props;
 
     // console.log('collectionItem', collectionItem, index, currentId);
     let activeImage = this.getFullImagePath(
-      collectionItem.images,
-      collectionItem.studioBookId,
-      device.isVZSTB,
+      collectionItem.imageName,
+      collectionItem.id,
     );
 
     return (
