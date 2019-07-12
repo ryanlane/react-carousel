@@ -1,3 +1,3 @@
 /* We really only need to export the Carousel component, but 
 if we ever wanted to use one of the other sub components now you can */
-export { Carousel, CarouselItem, CarouselDetails } from './Carousel';
+export { Carousel } from './Carousel';
