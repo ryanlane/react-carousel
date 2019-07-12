@@ -14,8 +14,7 @@ class Carousel extends Component {
       itemWidth: 0,
     };
 
-    this.imagePath =
-      'https://s3-us-west-2.amazonaws.com/movie-posters.ryanlane.com/';
+
 
     this.idleTimer = null;
     this.idleWait = 2000;
@@ -108,7 +107,7 @@ class Carousel extends Component {
               return (
                 <CarouselItem
                   key={index}
-                  id={item.id}
+                  collectionItem={item}
                   index={index}
                   currentId={this.state.currentIndex}
                   isActive={isActive}
@@ -120,7 +119,7 @@ class Carousel extends Component {
             })}
           </ul>
         </div>
-        <CarouselDetails id={myShelf[middle].id} />
+        <CarouselDetails collectionItem={myShelf[middle]} />
       </div>
     );
   }
