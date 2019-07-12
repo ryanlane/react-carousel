@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Carousel } from './components';
 import './App.css';
 
 function App() {
