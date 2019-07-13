@@ -11,11 +11,14 @@ class CarouselItem extends Component {
       'https://s3-us-west-2.amazonaws.com/movie-posters.ryanlane.com/';
   }
 
-  handleClick(resourceId, ssId) {
-    const { history } = this.props;
-    //this.props.history.push('/mediascape');
+  handleClick(resourceId, isActive) {
+    const { history, onClick } = this.props;
 
-    history.push(`/somepath/${resourceId}`);
+    if (isActive) {
+      history.push(`/somepath/${resourceId}`);
+    } else {
+      onClick();
+    }
   }
 
   getFullImagePath(filename) {
@@ -25,7 +28,7 @@ class CarouselItem extends Component {
   render() {
     const { collectionItem, isActive, position } = this.props;
 
-    // console.log('collectionItem', collectionItem, index, currentId);
+    console.log('collectionItem', collectionItem);
     let activeImage = this.getFullImagePath(
       collectionItem.imageName,
       collectionItem.id,
@@ -38,7 +41,7 @@ class CarouselItem extends Component {
           [styles.left]: position === -1,
           [styles.right]: position === 1,
         })}
-        onClick={() => this.handleClick(collectionItem.studioBookId)}
+        onClick={() => this.handleClick(collectionItem.studioBookId, isActive)}
       >
         {/* <div className={styles.title}>{collectionItem.title}</div> */}
 
