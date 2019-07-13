@@ -1,14 +1,9 @@
 @import '../../styles/variables.scss';
-.contentItem {
-  width: 20vw;
-  min-width: 160px;
-  min-height: 200px;
-  padding: 10px;
 
-  margin: 10vh 0;
-  opacity: 0.75;
-  z-index: 50;
-  transition: all 50ms ease;
+.contentItem {
+  opacity: 0.65;
+  transition: all 100ms ease-in-out;
+  display: none;
 
   & .imageContainer {
     display: block;
@@ -16,10 +11,10 @@
     margin-right: auto;
     width: 20vw;
     min-width: 150px;
-    height: 15vw;
+    height: auto;
     min-height: 150px;
     overflow: hidden;
-    transition: all 50ms ease;
+    transition: all 500ms ease-out;
   }
 
   & .title {
@@ -37,21 +32,18 @@
   }
 
   &.selected {
-    width: 50vw;
     z-index: 100;
     opacity: 1;
-    margin: 0;
+    order: 2;
+    display: block;
+
+    z-index: 3;
+    transform: scale(2.5);
+    // box-shadow: 15px 0px 20px 0px $nfx-navy, -15px 0px 20px 0px $nfx-navy;
 
     & .imageContainer {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 45vw;
-      min-width: 150px;
-      height: auto;
-      min-height: 150px;
-      overflow: hidden;
-      box-shadow: 15px 0px 20px 0px $color-blue-dark, -15px 0px 20px 0px $color-blue-dark;
+      // width: 45vw;
+      box-shadow: 0 0 5px 1px $color-green-bright, /* inner white */ 0 0 5px 1px $color-green-bright, /* middle magenta */ 0 0 5px 1px $color-green-bright; /* outer cyan */
     }
 
     & .title {
@@ -64,11 +56,20 @@
   }
 
   &.left {
-    margin-right: -120px;
+    // margin-right: -120px;
+    order: 1;
+    display: block;
+
+    transform: translateX(-280px) scale(1.5);
+    z-index: 1;
   }
 
   &.right {
-    margin-left: -120px;
+    // margin-left: -120px;
+    order: 3;
+    display: block;
+    transform: translateX(280px) scale(1.5);
+    z-index: 2;
   }
 }
 
@@ -86,47 +87,3 @@
   justify-content: center;
 }
 
-.single-slide {
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 30%;
-  position: absolute;
-  background-color: white;
-  transition: 2s ease;
-  box-shadow: 0px 5px 10px lightgrey;
-}
-
-/* Left slide*/
-.single-slide[data-order='1'] {
-  left: 10vw;
-  transform: translate(-50%) scale(0.8, 0.9) rotateY(5deg);
-  z-index: 1;
-}
-
-/* Middle slide */
-.single-slide[data-order='2'] {
-  left: 40vw;
-  transform: translate(-50%);
-  z-index: 3;
-}
-
-/* Right slide*/
-.single-slide[data-order='3'] {
-  left: 90vw;
-  transform: translate(-120%) scale(0.8, 0.9) rotateY(-5deg);
-  z-index: 2;
-}
-
-.single-slide:nth-child(2) {
-  order: 3;
-}
-.single-slide:nth-child(1) {
-  order: 2;
-}
-
-.single-slide:nth-child(3) {
-  order: 1;
-}
