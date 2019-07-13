@@ -8,16 +8,9 @@ class Carousel extends Component {
     super(props);
 
     this.state = {
-      currentKey: null,
       currentIndex: 0,
       isActive: false,
-      itemWidth: 0,
     };
-
-
-
-    this.idleTimer = null;
-    this.idleWait = 2000;
 
     this.handleKey = this.handleKey.bind(this);
 
@@ -62,8 +55,12 @@ class Carousel extends Component {
     }
   }
 
+  handleOutsideClick(index) {
+    this.setState({ currentIndex: index });
+  }
+
   render() {
-    const { collection, history } = this.props;
+    const { collection, history, onBackgroundSet } = this.props;
     let myShelf = [];
 
     this.maxSize = collection.length - 1;
@@ -94,14 +91,26 @@ class Carousel extends Component {
     return (
       <div>
         <div className={styles.Content}>
-          <ul className={styles.resourceList} ref={this.resourceList}>
-            {myShelf.map((item, index) => {
-              const isActive = index === middle;
+          <div className={styles.resourceList} ref={this.resourceList}>
+            {collection.map((item, index) => {
+              const isActive = index === this.state.currentIndex;
               let position = '0';
-              if (index < middle) {
+              if (index === this.state.currentIndex - 1) {
                 position = -1;
-              } else if (index > middle) {
+              } else if (index === this.state.currentIndex + 1) {
                 position = 1;
+              }
+
+              if (this.state.currentIndex === collection.length - 1) {
+                if (index === 0) {
+                  position = 1;
+                }
+              }
+
+              if (this.state.currentIndex === 0) {
+                if (index === collection.length - 1) {
+                  position = -1;
+                }
               }
 
               return (
@@ -112,14 +121,13 @@ class Carousel extends Component {
                   currentId={this.state.currentIndex}
                   isActive={isActive}
                   position={position}
-                  history={history}
-                  returnItemSize={size => this.handleItemSize(size)}
+                  onClick={() => this.handleOutsideClick(index)}
                 />
               );
             })}
-          </ul>
+          </div>
         </div>
-        <CarouselDetails collectionItem={myShelf[middle]} />
+        <CarouselDetails collectionItem={myShelf[middle]} onChange={path => onBackgroundSet(path)} />
       </div>
     );
   }
