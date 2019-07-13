@@ -1,5 +1,15 @@
 @import '../../styles/variables.scss';
-.details {
+
+.backgroundImage {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
+}
+
+.detailsText {
   position: fixed;
   left: 0;
   right: 0;
@@ -7,18 +17,31 @@
   height: 25vh;
   color: $color-white;
   font-size: 1.4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   & .title {
+    font-weight: 600;
+    line-height: 2;
     color: $color-white;
     font-size: 2em;
-    line-height: 2em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
+  & .credits {
+    font-weight: 600;
+    line-height: 0.92;
+    color: $color-white;
+    font-size: 0.8em;
+  }
+
   & .description {
     color: $color-white;
     font-size: 1.4em;
+    width: 60vw;
   }
 }
