@@ -26,7 +26,7 @@ class Carousel extends Component {
   }
 
   handleKey(e) {
-    const { collection, history } = this.props;
+    const { collection } = this.props;
     console.log('key', e.key, e.code);
     let selectedItem = 0;
 
@@ -47,8 +47,7 @@ class Carousel extends Component {
         break;
       case 'Enter':
         console.log(collection[this.state.currentIndex].id);
-        history.push(`/somepath/${collection[this.state.currentIndex].id}`);
-
+        window.location.href = collection[this.state.currentIndex].link;
         break;
       default:
         break;
@@ -60,7 +59,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const { collection, history, onBackgroundSet } = this.props;
+    const { collection, onBackgroundSet } = this.props;
     let myShelf = [];
 
     this.maxSize = collection.length - 1;

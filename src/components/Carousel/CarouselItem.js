@@ -12,10 +12,10 @@ class CarouselItem extends Component {
   }
 
   handleClick(resourceId, isActive) {
-    const { history, onClick } = this.props;
+    const { onClick, collectionItem } = this.props;
 
     if (isActive) {
-      history.push(`/somepath/${resourceId}`);
+      window.location.href = collectionItem.link;
     } else {
       onClick();
     }

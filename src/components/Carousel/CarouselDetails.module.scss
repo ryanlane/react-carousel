@@ -9,24 +9,23 @@
   z-index: 0;
 }
 
-.detailsText {
+.details {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 25vh;
+  height: 15vh;
   color: $color-white;
-  font-size: 1.4em;
+  font-size: 2vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   & .title {
-    font-weight: 600;
     line-height: 2;
     color: $color-white;
-    font-size: 2em;
+    font-size: 2vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
