@@ -91,7 +91,7 @@ class Carousel extends Component {
     return (
       <div>
         <div className={styles.Content}>
-          <div className={styles.resourceList} ref={this.resourceList}>
+          <ul className={styles.resourceList} ref={this.resourceList}>
             {collection.map((item, index) => {
               const isActive = index === this.state.currentIndex;
               let position = '0';
@@ -125,9 +125,12 @@ class Carousel extends Component {
                 />
               );
             })}
-          </div>
+          </ul>
         </div>
-        <CarouselDetails collectionItem={myShelf[middle]} onChange={path => onBackgroundSet(path)} />
+        <CarouselDetails
+          collectionItem={myShelf[middle]}
+          onChange={path => onBackgroundSet(path)}
+        />
       </div>
     );
   }
