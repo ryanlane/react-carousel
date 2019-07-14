@@ -13,21 +13,24 @@ class Carousel extends Component {
     };
 
     this.handleKey = this.handleKey.bind(this);
+    this.handleWheel = this.handleWheel.bind(this);
 
     this.defaultItemDisplay = 3;
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKey);
+    window.addEventListener('wheel', this.handleWheel);
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKey);
+    window.removeEventListener('wheel', this.handleWheel);
   }
 
+  // support arrow keys to move through the list and enter key to select
   handleKey(e) {
     const { collection } = this.props;
-    console.log('key', e.key, e.code);
     let selectedItem = 0;
 
     switch (e.key) {
@@ -54,6 +57,30 @@ class Carousel extends Component {
     }
   }
 
+  // support mouse wheel to scroll through list
+  handleWheel(e) {
+    const { collection } = this.props;
+    let selectedItem = 0;
+
+    console.log('wheel :', e);
+    if (Math.sign(e.deltaY) === 1) {
+      selectedItem =
+        this.state.currentIndex < this.maxSize
+          ? this.state.currentIndex + 1
+          : 0;
+      this.setState({ currentIndex: selectedItem });
+    }
+
+    if (Math.sign(e.deltaY) === -1) {
+      selectedItem =
+        this.state.currentIndex > 0
+          ? this.state.currentIndex - 1
+          : collection.length - 1;
+      this.setState({ currentIndex: selectedItem });
+    }
+  }
+
+  // clicking on none active poster will make it active instead of opening
   handleOutsideClick(index) {
     this.setState({ currentIndex: index });
   }

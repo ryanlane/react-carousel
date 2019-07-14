@@ -31,8 +31,6 @@ class Collection extends Component {
   }
 
   render() {
-    const { history } = this.props;
-
     return (
       <div>
         <div className={styles.imageBackground} ref={this.contentDiv} />
@@ -40,7 +38,6 @@ class Collection extends Component {
           <div>
             <Carousel
               collection={sampleCollection}
-              history={history}
               onBackgroundSet={path => this.handleBackground(path)}
             />
           </div>
