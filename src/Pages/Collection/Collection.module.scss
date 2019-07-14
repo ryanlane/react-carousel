@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.imageBackground {
+  position: fixed;
+  filter: blur(50px);
+  background-color: $color-gray-dark;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.3;
+}
+
+.Content {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resourceList {
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  color: $color-white;
+  flex-flow: row nowrap;
+  overflow: hidden;
+}
