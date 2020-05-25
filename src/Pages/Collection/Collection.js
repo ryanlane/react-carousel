@@ -15,15 +15,6 @@ class Collection extends Component {
     };
   }
 
-  componentDidMount() {
-    if (
-      this.VZUAL &&
-      this.VZUAL.VoiceClient &&
-      this.VZUAL.VoiceClient.stopNovelSession
-    ) {
-      this.VZUAL.VoiceClient.stopNovelSession();
-    }
-  }
 
   handleBackground(imagePath) {
     // set background on Content
